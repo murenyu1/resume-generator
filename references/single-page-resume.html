@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人简历 - 单页高清打印模板</title>
+  <style>
+    /* 基础重置 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #1f2937;
+      background-color: #f3f4f6;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* A4 单页纸容器规范 */
+    .resume-page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 16mm 18mm;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* 打印模式：完美铺满 A4 纸，去除边距阴影 */
+    @media print {
+      body {
+        background: transparent;
+      }
+      .resume-page {
+        width: 100%;
+        margin: 0;
+        padding: 12mm 15mm;
+        box-shadow: none;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+      }
+    }
+
+    /* 头部个人信息 */
+    .header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .name {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1e3a8a;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .contacts {
+      font-size: 13px;
+      color: #4b5563;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contacts span::after {
+      content: "•";
+      margin-left: 12px;
+      color: #9ca3af;
+    }
+
+    .contacts span:last-child::after {
+      content: "";
+      margin-left: 0;
+    }
+
+    /* 通用模块样式 */
+    .section {
+      margin-bottom: 14px;
+      page-break-inside: avoid;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e3a8a;
+      border-bottom: 1.5px solid #3b82f6;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* 项目/经历 条目 */
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+
+    .item-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .item-subtitle {
+      font-size: 13px;
+      color: #1e3a8a;
+      font-weight: 500;
+      margin-left: 8px;
+    }
+
+    .item-date {
+      font-size: 12.5px;
+      color: #6b7280;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* 列表与详情 */
+    .bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .bullet-list li {
+      font-size: 13px;
+      color: #374151;
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 3px;
+      text-align: justify;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #3b82f6;
+      font-weight: bold;
+    }
+
+    /* 技能标签列表 */
+    .skill-item {
+      font-size: 13px;
+      color: #374151;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .skill-cat {
+      font-weight: 600;
+      color: #1f2937;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-page">
+    <!-- 头部 -->
+    <header class="header">
+      <h1 class="name">张小凡</h1>
+      <div class="contacts">
+        <span>求职意向：资深后端架构师</span>
+        <span>138-0000-0000</span>
+        <span>zhangxiaofan@example.com</span>
+        <span>北京 / 深圳</span>
+        <span>github.com/murenyu1</span>
+      </div>
+    </header>
+
+    <!-- 教育背景 -->
+    <section class="section">
+      <h2 class="section-title">教育背景</h2>
+      <div class="item-header">
+        <div>
+          <span class="item-title">北京航空航天大学</span>
+          <span class="item-subtitle">计算机科学与技术 · 工学硕士</span>
+        </div>
+        <div class="item-date">2019.09 - 2022.06</div>
+      </div>
+    </section>
+
+    <!-- 专业技能 -->
+    <section class="section">
+      <h2 class="section-title">专业技能</h2>
+      <div class="skill-item">
+        <span class="skill-cat">• 编程语言：</span>精通 Golang、Python，熟练掌握 C/C++、SQL，具备良好的系统编程素养与面向对象设计能力。
+      </div>
+      <div class="skill-item">
+        <span class="skill-cat">• 架构与系统：</span>深入理解高并发微服务架构、分布式一致性协议（Raft/Paxos）、领域驱动设计（DDD）与 RESTful / gRPC 协议。
+      </div>
+      <div class="skill-item">
+        <span class="skill-cat">• 存储与中间件：</span>深入掌握 MySQL 索引调优与分库分表、Redis 缓存设计（分布式锁/多级缓存），熟练使用 Kafka、Etcd、Docker、K8s。
+      </div>
+    </section>
+
+    <!-- 工作经历 -->
+    <section class="section">
+      <h2 class="section-title">工作经历</h2>
+      <div style="margin-bottom: 10px;">
+        <div class="item-header">
+          <div>
+            <span class="item-title">字节跳动 / 核心交易平台</span>
+            <span class="item-subtitle">资深后端研发工程师</span>
+          </div>
+          <div class="item-date">2022.07 - 至今</div>
+        </div>
+        <ul class="bullet-list">
+          <li>主导交易核心微服务架构升级，设计分布式状态机解耦复杂下单流程，将核心接口平均响应时间从 320ms 降至 65ms，平稳支撑双十一峰值 QPS 6500+。</li>
+          <li>攻关分布式事务一致性难题，落地基于 Kafka 与本地消息表的最大努力通知机制，彻底解决高并发场景下虚假超时与掉单问题，挽回潜在资金损失。</li>
+          <li>推动单元测试与全链路压测体系落地，沉淀 10+ 核心业务公共 SDK，将业务团队新需求迭代交付周期缩短 30%。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 项目经历 -->
+    <section class="section">
+      <h2 class="section-title">项目经历</h2>
+      <div style="margin-bottom: 10px;">
+        <div class="item-header">
+          <div>
+            <span class="item-title">海量分布式任务调度中台</span>
+            <span class="item-subtitle">Golang, Etcd, gRPC, Redis</span>
+          </div>
+          <div class="item-date">2023.03 - 2023.11</div>
+        </div>
+        <ul class="bullet-list">
+          <li>针对单点调度性能瓶颈与崩溃隐患，基于 Etcd 分布式锁与 Raft 选举重构调度集群，支持跨机房容灾，单集群日承载调度任务突破 2000 万次。</li>
+          <li>设计并实现节点动态心跳探活与故障秒级自动漂移接管机制，将节点崩溃时的任务重试与恢复时延严格控制在 3 秒以内，服务可用性达 99.99%。</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
